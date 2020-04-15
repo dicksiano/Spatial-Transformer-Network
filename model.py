@@ -8,8 +8,8 @@ import numpy as np
 class STN(nn.Module):
     def __init__(self):
         super(STN, self).__init__()
-        self.conv1 = nn.Conv2d(1, 10, kernel_size=5)
-        self.conv2 = nn.Conv2d(10, 20, kernel_size=5)
+        self.conv1 = nn.Conv2d(in_channels=1,  out_channels=10, kernel_size=5)
+        self.conv2 = nn.Conv2d(in_channels=10, out_channels=20, kernel_size=5)
         self.conv2_drop = nn.Dropout2d()
         self.self.fully_con1 = nn.Linear(320, 50)
         self.self.fully_con2 = nn.Linear(50, 10)
@@ -18,7 +18,7 @@ class STN(nn.Module):
         Spatial transformer localization-network
 
         Affine Matrix Aθ
-        
+
         Aθ = [ 
                 [θ11, θ12, θ13],
                 [θ21, θ22, θ23]
@@ -26,11 +26,11 @@ class STN(nn.Module):
 
         """
         self.localization = nn.Sequential(
-                                            nn.Conv2d(1, 8, kernel_size=7),
-                                            nn.MaxPool2d(2, stride=2),
+                                            nn.Conv2d(in_channels=1, out_channels=8, kernel_size=7),
+                                            nn.MaxPool2d(kernel_size=2, stride=2),
                                             nn.ReLU(True),
-                                            nn.Conv2d(8, 10, kernel_size=5),
-                                            nn.MaxPool2d(2, stride=2),
+                                            nn.Conv2d(in_channels=8, out_channels=10, kernel_size=5),
+                                            nn.MaxPool2d(kernel_size=2, stride=2),
                                             nn.ReLU(True)
                                         )
 
