@@ -9,6 +9,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = STN().to(device)
 optimizer = optim.SGD(model.parameters(), lr=0.01)
 
-for epoch in range(1, 20 + 1):
-    train(epoch)
-    test()
+if __name__ == '__main__':
+    for epoch in range(1, 20 + 1):
+        train(epoch)
+        test()
