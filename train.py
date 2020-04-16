@@ -57,7 +57,7 @@ def test(model, device):
             target = target.to(device)
             output = model(data)
 
-            loss += F.nll_loss(output, target, size_average=False).item()
+            loss += F.nll_loss(output, target, size_average=False).item() # negative log likelihood loss
             pred = output.max(1, keepdim=True)[1]
             correct += pred.eq(target.view_as(pred)).sum().item()
 
