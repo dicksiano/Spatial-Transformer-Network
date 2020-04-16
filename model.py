@@ -49,7 +49,7 @@ class STN(nn.Module):
         xs = self.localization(x)
         xs = xs.view(-1, 10 * 3 * 3) # reshape for 10 * 3 * 3 columns
         theta = self.regression_layer(xs)
-        theta = theta.view(-1, 2, 3) # reshape for 2 columns and 2 channels
+        theta = theta.view(-1, 2, 3) # reshape for 2 columns and 3 channels
 
         return theta
 
