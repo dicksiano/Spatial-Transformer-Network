@@ -11,5 +11,5 @@ optimizer = optim.SGD(model.parameters(), lr=0.01)
 
 if __name__ == '__main__':
     for epoch in range(1, 20 + 1):
-        train(epoch)
-        test()
+        train(epoch, model, optimizer, device)
+        test(model, device)
