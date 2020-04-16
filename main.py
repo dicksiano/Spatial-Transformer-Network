@@ -1,12 +1,12 @@
 import torch
 import torch.optim as optim
 
-from model import STN
+from model import NeuralNet
 from train import train, test
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-model = STN().to(device)
+model = NeuralNet().to(device)
 optimizer = optim.SGD(model.parameters(), lr=0.01)
 
 if __name__ == '__main__':
